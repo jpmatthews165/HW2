@@ -31,32 +31,39 @@ else {
 echo "<br><br>";
 
 echo "Number 4. <br>";
-$new_date = str_replace("/", " ", $date);
-echo $new_date;
-
+$start = 0;
+while (1) {
+    $pos = strpos($date, "/", $start);
+    if ($pos == FALSE) {
+        break;
+    } else {
+        echo "$pos ";
+        $start = $pos + 1;
+    }
+}
 echo "<br><br>";
 
 echo "Number 5. <br>";
-$count = str_word_count($new_date);
+$count = str_word_count($date);
 echo $count;
 
 echo "<br><br>";
 
 echo "Number 6. <br>";
-$len = strlen($new_date);
-echo $len;
+$string_length = strlen($date);
+echo "$string_length";
 
 echo "<br><br>";
 
 echo "Number 7. <br>";
-$sub = substr($new_date,0,1);
+$sub = substr($date,0,1);
 $ascii= ord($sub);
 echo $ascii;
 
 echo "<br><br>";
 
 echo "Number 8. <br>";
-$last = substr($new_date,-2);
+$last = substr($date,-2);
 echo $last;
 
 echo "<br><br>";
@@ -82,10 +89,10 @@ for ($i=0; $i < count($arr); $i++) {
 	$test = $arr[array_keys($arr)[$i]];
 	switch ($test) {
 		case 'leap year':
-			echo array_keys($arr)[$i] . " ";
+			echo "True" . " ";
 			break;
 		default:
-			echo "";
+			echo "False" . " ";
 	}
 }
 ?>
